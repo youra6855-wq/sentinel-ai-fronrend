@@ -1,0 +1,7 @@
+import type { ReactNode } from 'react'
+import { ArrowDownRight, ArrowUpRight, Minus } from 'lucide-react'
+export function PageHeading({eyebrow,title,description,action}:{eyebrow:string;title:string;description:string;action?:ReactNode}){return <div className="page-heading"><div><div className="eyebrow">{eyebrow}</div><h1>{title}</h1><p>{description}</p></div>{action&&<div className="heading-action">{action}</div>}</div>}
+export function StatCard({label,value,change,icon:Icon,tone='cyan',note}:{label:string;value:string;change?:string;icon:any;tone?:string;note:string}){return <div className="stat-card"><div className="stat-top"><span>{label}</span><div className={`stat-icon ${tone}`}><Icon size={18}/></div></div><div className="stat-value">{value}</div><div className="stat-bottom">{change&&<span className={`trend ${change.startsWith('+')?'up':'down'}`}>{change.startsWith('+')?<ArrowUpRight size={14}/>:<ArrowDownRight size={14}/>} {change}</span>}<span>{note}</span></div></div>}
+export function Severity({value}:{value:string}){return <span className={`severity severity-${value.toLowerCase()}`}><i/>{value}</span>}
+export function Status({value}:{value:string}){return <span className={`status status-${value.toLowerCase().replace(' ','-')}`}><i/>{value}</span>}
+export function EmptyState({children}:{children:ReactNode}){return <div className="empty-state"><Minus size={20}/><p>{children}</p></div>}

@@ -1,0 +1,11 @@
+import { Navigate,Route,Routes } from 'react-router-dom'
+import Layout from './components/Layout'
+import Dashboard from './pages/Dashboard'
+import Alerts from './pages/Alerts'
+import AlertDetail from './pages/AlertDetail'
+import Logs from './pages/Logs'
+import Rules from './pages/Rules'
+import MlInsights from './pages/MlInsights'
+import Reports from './pages/Reports'
+import Settings from './pages/Settings'
+export default function App(){return <Routes><Route element={<Layout/>}><Route index element={<Dashboard/>}/><Route path="/alerts" element={<Alerts/>}/><Route path="/alerts/:id" element={<AlertDetail/>}/><Route path="/logs" element={<Logs/>}/><Route path="/rules" element={<Rules/>}/><Route path="/ml-insights" element={<MlInsights/>}/><Route path="/reports" element={<Reports/>}/><Route path="/settings" element={<Settings/>}/><Route path="*" element={<Navigate to="/" replace/>}/></Route></Routes>}
